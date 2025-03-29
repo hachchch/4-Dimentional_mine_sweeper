@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8 " />
+        <title>マインスイーパー</title>
+        <style>
+            .large{
+                font-size:40px;
+            }
+            .sideText{
+                font-size:30px;
+                position:absolute;
+                left:720px;
+            }
+            .largeBox{
+                width:60px;
+                height:30px;
+                font-size:30px;
+            }
+            .yellow{
+                -webkit-text-stroke: 1px #bfbe5d;
+                color: #FFF;
+            }
+            .minimap{
+                font-size:30px;
+                position:absolute;
+                left:800px;
+                bottom:125px;
+            }
+        </style>
+    </head>
+    <body>
+    <audio id="explosion" preload="auto">
+        <source src="./sounds/爆発1.mp3" type="audio/mp3">
+        効果音非対応
+    </audio>
+    <audio id="click1" preload="auto">
+        <source src="./sounds/決定ボタンを押す50.mp3" type="audio/mp3">
+        効果音非対応低い
+    </audio>
+    <audio id="click2" preload="auto">
+        <source src="./sounds/決定ボタンを押す44.mp3" type="audio/mp3">
+        効果音非対応高い
+    </audio>
+    <audio id="cancel" preload="auto">
+        <source src="./sounds/キャンセル4.mp3" type="audio/mp3">
+        効果音非対応
+    </audio>
+    <script type="text/javascript">
+        function explosion() {
+            document.getElementById('explosion').pause();
+            document.getElementById('explosion').currentTime = 0;
+            document.getElementById("explosion").play();
+        }
+        function click1() {
+            document.getElementById('click1').pause();
+            document.getElementById('click1').currentTime = 0;
+            document.getElementById("click1").play();
+        }
+        function click2() {
+            document.getElementById('click2').pause();
+            document.getElementById('click2').currentTime = 0;
+            document.getElementById("click2").play();
+        }
+        function cancel() {
+            document.getElementById('cancel').pause();
+            document.getElementById('cancel').currentTime = 0;
+            document.getElementById("cancel").play();
+        }
+    </script>
+    <div class="large">
+        <label id="startButton">スタート</label><hr>
+        <div id="mapSelect">
+        地雷の数<input type="number" value="8" id="bombAmount" class="largeBox" /><br>
+        マップの大きさ<br>
+            <input type="number" value="4" id="widthX" class="largeBox" />縦<br>
+            <input type="number" value="4" id="heightY" class="largeBox" />横<br>
+            <input type="number" value="4" id="lengthZ" class="largeBox" />高さ<br>
+            <input type="number" value="4" id="worldW" class="largeBox" />ワールド<br>
+        操作説明
+        <t id="descr">
+        クリックで掘る。<br>
+        右クリックでしるしを付ける。
+        </t>
+        </div>
+    </div>
+    <div class="large gameSetting">
+    </div>
+    <div class="sideText"><t id="sideText"></t></div>
+    <canvas class="minimap" width="350" height="350"></canvas>
+    <canvas class="canvas" width="0" height="0"></canvas>
+    <script src="main.js" type="text/javascript"></script>
+    </body>
+</html>
